@@ -48,8 +48,9 @@ if option=="1":
 elif option=="2":
     video=input("Enter video link: ")
     if len(video) > 42 and len(video) < 44:
-        print("Downloading: "+video.title)
-        YouTube(''.join(video)).streams.get_highest_resolution.download()
-        print("Downloaded video.")
+        yt=pytube.YouTube(''.join(video))
+        print("Downloading: "+ yt.title)
+        yt.streams.get_highest_resolution().download()
+        print("Download finished.")
     else:
         print("You entered link wrong. If link contains something like '?t=1' delete it and try again.")
